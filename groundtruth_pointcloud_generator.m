@@ -1,5 +1,5 @@
 data_total=[];
-for k=0:1:35
+for k=6:1:6
     filename=['PointCloud',int2str(k),'.csv'];
     cloud = importdata(filename);
     datat=cloud.data(:,2:4);
@@ -7,4 +7,4 @@ for k=0:1:35
 %     datat=datat(S,:);
     data_total=[data_total;datat];
 end
-load('data_total.mat');
+% save('Pt6.mat',data_total);

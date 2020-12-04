@@ -13,15 +13,15 @@ clear all; close all; clc;
 SIGMA=[]; %covariance
 MU=[]; %mean
 CP=[]; %weights
-Xbottom=-100;
-Xtop=250;
-Ybottom=-50;
-Ytop=200;
-Zbottom=-50;
-Ztop=150;
-resolution=25;
+Xbottom=-10;
+Xtop=25;
+Ybottom=-5;
+Ytop=20;
+Zbottom=-5;
+Ztop=15;
+resolution=0.5;
 load('roc_test.mat');
-load('data_total.mat'); % we can get ground_truth points in "data_total"
+load('pt6.mat'); % we can get ground_truth points in "data_total"
 
 num=(floor((Xtop-Xbottom)/resolution)+1)*(floor((Ytop-Ybottom)/resolution)+1)*(floor((Ztop-Zbottom)/resolution)+1);
 point=zeros(num,3);
@@ -45,7 +45,7 @@ for x=Xbottom:resolution:Xtop
     for pp=1:1:L
         tempdata=data_total-pt_temp(pp,:);
         distance=sqrt(min(tempdata(:,1).^2+tempdata(:,2).^2+tempdata(:,3).^2)); %calculate the distance from sampled point to the nearest ground_truth point
-        if distance<0.1
+        if distance<0.5
             occupancy(ptr,1)=1;
             ptr=ptr+1;
 %             occupancy=[occupancy;1];
