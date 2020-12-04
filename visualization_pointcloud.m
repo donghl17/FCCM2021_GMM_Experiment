@@ -1,7 +1,7 @@
 clear all; clc;
 filename=['PointCloud6.csv'];
 cloud = importdata(filename);
-result=cloud.data(:,2:4)*10;
+result=cloud.data(:,2:4);
 cmap = colormap;
 d = length(cmap);
 zLow = min(result(:,3));
